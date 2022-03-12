@@ -2250,7 +2250,9 @@ input[type=text]:active:hover {
 }
 
 /*line focus*/
-/*.theme-light .cm-active.cm-line {
+
+/*
+.theme-light .cm-active.cm-line {
     background-color: rgba(0, 0, 0, .03);
     border-right: 3px solid var(--accent);
 }
@@ -2258,10 +2260,11 @@ input[type=text]:active:hover {
 .theme-dark .cm-active.cm-line {
     background-color: rgba(255, 255, 255, .03);
     border-right: 3px solid var(--accent);
-}*/
+}
+*/
+
 
 /* tree-item*/
-
 .tree-item-flair {
     font-size: var(--font-small);
     line-height: 1;
