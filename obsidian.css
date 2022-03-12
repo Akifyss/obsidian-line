@@ -191,8 +191,6 @@ settings:
 }
 
 
-
-
 body {
     --font-adaptive-normal: var(--font-normal);
     --font-adaptive-small: var(--font-small);
@@ -220,25 +218,6 @@ body {
     --checkbox-margin: 0px 8px 0px -1.35em
 }
 
-@media (max-width:400pt) {
-    .is-mobile {
-        --font-adaptive-small: calc(var(--font-small) + 2px);
-        --font-adaptive-smaller: calc(var(--font-smaller) + 2px);
-        --font-adaptive-smallest: calc(var(--font-smallest) + 2px);
-        --max-width: 88%
-    }
-}
-
-@media (min-width:400pt) {
-    .is-mobile {
-        --font-adaptive-normal: calc(var(--font-normal) + 4px);
-        --font-adaptive-small: calc(var(--font-small) + 3px);
-        --font-adaptive-smaller: calc(var(--font-smaller) + 2px);
-        --font-adaptive-smallest: calc(var(--font-smallest) + 2px);
-        --line-width-adaptive: calc(var(--line-width) + 6rem);
-        --max-width: 90%
-    }
-}
 
 /*svg*/
 
@@ -2109,7 +2088,7 @@ body:not(.is-mobile) .document-search-close-button {
     backdrop-filter: blur(20px);
 }
 
-.theme-dark. body:not(.is-mobile) .document-search-button,
+.theme-dark body:not(.is-mobile) .document-search-button,
 .theme-dark body:not(.is-mobile) .document-search-close-button {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
     background-color: rgba(255, 255, 255, .05);
@@ -2271,15 +2250,15 @@ input[type=text]:active:hover {
 }
 
 /*line focus*/
-.theme-light .cm-active.cm-line {
-    background-color: rgba(0, 0, 0, .05);
+/*.theme-light .cm-active.cm-line {
+    background-color: rgba(0, 0, 0, .03);
     border-right: 3px solid var(--accent);
 }
 
 .theme-dark .cm-active.cm-line {
-    background-color: rgba(255, 255, 255, .05);
+    background-color: rgba(255, 255, 255, .03);
     border-right: 3px solid var(--accent);
-}
+}*/
 
 /* tree-item*/
 
