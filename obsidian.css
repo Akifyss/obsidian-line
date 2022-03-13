@@ -792,16 +792,16 @@ body:not(.is-mobile) .markdown-source-view.mod-cm6 .list-bullet:after {
 
 span.cm-hashtag.cm-hashtag-begin {
     font-size: 11px;
-    border-top-left-radius: var(--tag-radius);
-    border-bottom-left-radius: var(--tag-radius);
+    border-top-left-radius: var(--radius-m);
+    border-bottom-left-radius: var(--radius-m);
     padding-left: 8px;
     border-right: none;
 }
 
 span.cm-hashtag.cm-hashtag-end {
     font-size: 11px;
-    border-top-right-radius: var(--tag-radius);
-    border-bottom-right-radius: var(--tag-radius);
+    border-top-right-radius: var(--radius-m);
+    border-bottom-right-radius: var(--radius-m);
     border-left: none;
     padding-right: 8px;
 }
@@ -822,7 +822,7 @@ div:not(.CodeMirror-activeline)>.CodeMirror-line span.cm-hashtag-end {
     display: inline-block;
     margin: 0px 0px;
     cursor: pointer;
-    border-radius: 14px;
+    border-radius: var(--radius-m);
 }
 
 /*hr*/
@@ -1081,7 +1081,7 @@ img {
     z-index: 1;
 }*/
 
-.mod-left-split .workspace-tabs {
+/*.mod-left-split .workspace-tabs {
     border-right: 1px dashed rgba(var(--text-normal-rgb), 0.15);
     border-bottom: 1px dashed rgba(var(--text-normal-rgb), 0.15);
 }
@@ -1090,7 +1090,7 @@ img {
     border-left: 1px dashed rgba(var(--text-normal-rgb), 0.15);
     border-bottom: 1px dashed rgba(var(--text-normal-rgb), 0.15);
     ;
-}
+}*/
 
 
 
@@ -1600,42 +1600,63 @@ body.is-dragging {
     padding-right: 0px;
 }
 
+.workspace-split.mod-vertical>.workspace-split {
+    padding-right: 0px;
+}
+
 .workspace-split.mod-horizontal>.workspace-leaf {
     padding-top: 0px;
 }
 
-.workspace-split.mod-vertical>.workspace-leaf+.workspace-leaf {
-    background-color: var(--background-primary);
-    border-left: 1px dashed rgba(var(--text-normal-rgb), 0.15);
+.workspace-split.mod-horizontal {
+    padding: 0;
 }
 
-.workspace-split.mod-horizontal>.workspace-leaf+.workspace-leaf {
-    background-color: var(--background-primary);
-    border-top: 1px dashed rgba(var(--text-normal-rgb), 0.15);
-}
-
-
-.workspace-split.mod-vertical>*>.is-translucent .workspace-leaf-resize-handle,
-.workspace-split.mod-left-split>.is-translucent .workspace-leaf-resize-handle,
-.workspace-split.mod-right-split>.is-translucent .workspace-leaf-resize-handle,
-.workspace-split.mod-vertical>*>.workspace-leaf-resize-handle,
 .workspace-split.mod-left-split>.workspace-leaf-resize-handle,
 .workspace-split.mod-right-split>.workspace-leaf-resize-handle {
-    width: 2px;
+    height: 100%
 }
 
-.workspace-leaf-resize-handle {
-    background-color: transparent;
+.workspace-split.mod-root.mod-horizontal .workspace-leaf-resize-handle,
+.workspace-split.mod-root.mod-vertical .workspace-leaf-resize-handle {
+    border-width: 1px
 }
 
-.workspace-leaf-resize-handle:hover {
-    background-color: var(--accent);
+.workspace-split.mod-horizontal>*>.workspace-leaf-resize-handle {
+    height: 3px;
+    background: 0 0;
+    border-bottom: 1px dashed rgba(var(--text-normal-rgb), 0.15);
 }
 
-.is-translucent .workspace-leaf-resize-handle:hover {
-    background-color: var(--accent);
+.workspace-split.mod-right-split>.workspace-leaf-resize-handle {
+    background: 0 0;
+    border-left: 1px dashed rgba(var(--text-normal-rgb), 0.15);
+    width: 3px !important
 }
 
+.workspace-split.mod-left-split>.workspace-leaf-resize-handle,
+.workspace-split.mod-vertical>*>.workspace-leaf-resize-handle {
+    border-right: 1px dashed rgba(var(--text-normal-rgb), 0.15);
+    width: 4px !important;
+    background: 0 0
+}
+
+.workspace-split.mod-horizontal>*>.workspace-leaf-resize-handle:hover,
+.workspace-split.mod-left-split>.workspace-leaf-resize-handle:hover,
+.workspace-split.mod-right-split>.workspace-leaf-resize-handle:hover,
+.workspace-split.mod-vertical>*>.workspace-leaf-resize-handle:hover {
+    border-color: var(--accent);
+    transition: border-color .1s ease-in-out 50ms, border-width .1s ease-in-out 50ms;
+    border-width: 3px;
+}
+
+.workspace-split.mod-horizontal>*>.workspace-leaf-resize-handle:active,
+.workspace-split.mod-left-split>.workspace-leaf-resize-handle:active,
+.workspace-split.mod-right-split>.workspace-leaf-resize-handle:active,
+.workspace-split.mod-vertical>*>.workspace-leaf-resize-handle:active {
+    border-color: var(--accent);
+    border-width: 3px;
+}
 
 .workspace-leaf:not(.mod-active) {
     color: var(--text-muted);
