@@ -1098,6 +1098,7 @@ img {
 
 /*view*/
 .view-header {
+    border-top: none;
     height: 36px;
 }
 
@@ -1593,7 +1594,36 @@ body.is-dragging {
     background-color: var(--background-primary)
 }
 
-/*resize-handle*/
+/*workspace-leaf handle */
+
+.workspace-split.mod-vertical>.workspace-leaf {
+    padding-right: 0px;
+}
+
+.workspace-split.mod-horizontal>.workspace-leaf {
+    padding-top: 0px;
+}
+
+.workspace-split.mod-vertical>.workspace-leaf+.workspace-leaf {
+    background-color: var(--background-primary);
+    border-left: 1px dashed rgba(var(--text-normal-rgb), 0.15);
+}
+
+.workspace-split.mod-horizontal>.workspace-leaf+.workspace-leaf {
+    background-color: var(--background-primary);
+    border-top: 1px dashed rgba(var(--text-normal-rgb), 0.15);
+}
+
+
+.workspace-split.mod-vertical>*>.is-translucent .workspace-leaf-resize-handle,
+.workspace-split.mod-left-split>.is-translucent .workspace-leaf-resize-handle,
+.workspace-split.mod-right-split>.is-translucent .workspace-leaf-resize-handle,
+.workspace-split.mod-vertical>*>.workspace-leaf-resize-handle,
+.workspace-split.mod-left-split>.workspace-leaf-resize-handle,
+.workspace-split.mod-right-split>.workspace-leaf-resize-handle {
+    width: 2px;
+}
+
 .workspace-leaf-resize-handle {
     background-color: transparent;
 }
@@ -1606,6 +1636,10 @@ body.is-dragging {
     background-color: var(--accent);
 }
 
+
+.workspace-leaf:not(.mod-active) {
+    color: var(--text-muted);
+}
 
 /*titlebar*/
 
@@ -2042,8 +2076,7 @@ button.mod-cta {
 
 /*document-search / replace*/
 
-.document-search-close-button:hover,
-.modal-close-button:hover {
+.document-search-close-button:hover {
     background-color: var(--background-modifier-border);
 }
 
@@ -2106,7 +2139,6 @@ button.mod-cta {
 .theme-dark .document-search-close-button {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
     background-color: rgba(255, 255, 255, .05);
-    ;
 }
 
 .document-search-close-button {
@@ -2138,6 +2170,7 @@ button.mod-cta {
     font-weight: 200;
 }
 
+
 input.document-replace-input,
 input.document-search-input.mod-no-match,
 input.document-search-input.mod-no-match:hover {
@@ -2147,28 +2180,13 @@ input.document-search-input.mod-no-match:hover {
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
 }
 
-.theme-dark input.document-replace-input.mod-no-match,
-.theme-dark input.document-replace-input.mod-no-match:hover,
-.theme-dark input.document-search-input.mod-no-match,
-.theme-dark input.document-search-input.mod-no-match:hover {
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
-    background-color: rgba(255, 255, 255, .05);
-    ;
-}
-
 
 input.document-replace-input,
 input.document-search-input {
     margin-top: 2px;
     font-size: var(--font-adaptive-small) !important;
-    border: 1px solid var(--background-modifier-border);
-    border-radius: var(--radius-m);
     height: 30px !important;
-    background-color: #FFFFFF01;
-    backdrop-filter: blur(20px);
-    background: var(--background-primary);
     transition: border-color .1s ease-in-out;
-    border: 1px solid rgba(var(--text-normal-rgb), 0.15);
 }
 
 input.document-replace-input.mod-no-match:focus:hover,
@@ -2182,6 +2200,14 @@ input.document-search-input:focus {
     border-color: var(--accent);
     border-width: 1px;
     box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+
+input.document-search-input.mod-no-match:active,
+input.document-search-input.mod-no-match:active:hover,
+input.document-search-input.mod-no-match:focus,
+input.document-search-input.mod-no-match:focus:hover {
+    background-color: rgba(255, 0, 0, .1) !important;
 }
 
 /*search*/
@@ -2241,12 +2267,38 @@ input[type='number']:focus {
     border-width: 1px;
 }
 
+.theme-dark input[type='text']:active,
+.theme-dark input[type='search']:active,
+.theme-dark input[type='email']:active,
+.theme-dark input[type='password']:active,
+.theme-dark input[type='number']:active,
+.theme-dark input[type='text']:focus,
+.theme-dark input[type='search']:focus,
+.theme-dark input[type='email']:focus,
+.theme-dark input[type='password']:focus,
+.theme-dark input[type='number']:focus {
+    background-color: rgba(255, 255, 255, .05);
+    backdrop-filter: blur(20px);
+    box-shadow: inset 0 0 0 2px var(--accent);
+    border-color: var(--accent);
+    border-width: 1px;
+}
+
+
 input[type=email]:hover,
 input[type=number]:hover,
 input[type=password]:hover,
 input[type=search]:hover,
 input[type=text]:hover {
     background-color: #FFFFFF01;
+}
+
+.theme-dark input[type=email]:hover,
+.theme-dark input[type=number]:hover,
+.theme-dark input[type=password]:hover,
+.theme-dark input[type=search]:hover,
+.theme-dark input[type=text]:hover {
+    background-color: rgba(255, 255, 255, .05);
 }
 
 input[type=email]:active:hover,
@@ -2256,6 +2308,14 @@ input[type=search]:active:hover,
 input[type=text]:active:hover {
     box-shadow: inset 0 0 0 2px var(--accent);
     background-color: #FFFFFF01;
+}
+
+.theme-dark input[type=email]:active:hover,
+.theme-dark input[type=number]:active:hover,
+.theme-dark input[type=password]:active:hover,
+.theme-dark input[type=search]:active:hover,
+.theme-dark input[type=text]:active:hover {
+    background-color: rgba(255, 255, 255, .05);
 }
 
 .vertical-tab-content .search-input-container {
