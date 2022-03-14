@@ -2721,6 +2721,7 @@ body .kanban-plugin__grow-wrap>textarea {
     color: var(--text-muted) !important;
 }
 
+.kanban-plugin__lane-input,
 .kanban-plugin__item-input-wrapper {
     font-size: .875rem;
     border: 1px solid var(--background-modifier-border);
@@ -2730,4 +2731,13 @@ body .kanban-plugin__grow-wrap>textarea {
     background: var(--background-primary);
     display: flex;
     padding: 6px 8px;
+}
+
+body .kanban-plugin__lane-header-wrapper .kanban-plugin__grow-wrap>textarea,
+body .kanban-plugin__lane-input-wrapper .kanban-plugin__grow-wrap>textarea,
+body .kanban-plugin__lane-title p {
+    background: 0 0;
+    color: var(--text-normal);
+    font-size: calc(var(--font-adaptive-normal) - 2px);
+    font-weight: 500
 }
