@@ -122,7 +122,7 @@ settings:
     --background-modifier-error-hover: #470000;
     --background-modifier-cover: rgba(0, 0, 0, 0.8);
     --text-accent: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-d) + 12%));
-    --text-accent-hover: hsla(var(--accent-h), var(--accent-s),calc(var(--accent-d) + 12%), 0.85);
+    --text-accent-hover: hsla(var(--accent-h), var(--accent-s), calc(var(--accent-d) + 12%), 0.85);
     --text-normal: #dcddde;
     --text-normal-rgb: 220, 221, 222;
     --text-muted: #999;
@@ -162,7 +162,7 @@ settings:
     --background-modifier-error-hover: #bb0000;
     --background-modifier-cover: rgba(0, 0, 0, 0.8);
     --text-accent: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 12%));
-    --text-accent-hover: hsla(var(--accent-h), var(--accent-s),calc(var(--accent-l) - 12%), 0.85);
+    --text-accent-hover: hsla(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 12%), 0.85);
     --text-normal: #2e3338;
     --text-normal-rgb: 46, 51, 56;
     --text-muted: #888888;
@@ -1148,7 +1148,7 @@ svg.blocks {
 }
 
 
-.tree-item-icon.collapse-icon{
+.tree-item-icon.collapse-icon {
     padding-inline-start: 2px;
     padding-inline-end: 2px;
 }
@@ -2371,9 +2371,10 @@ body.is-dragging {
 
 /*.is-translucent*/
 .is-translucent .workspace-ribbon,
-.is-translucent .titlebar{
+.is-translucent .titlebar {
     opacity: 1;
 }
+
 /* status-bar*/
 .is-translucent .status-bar {
     margin: 0
@@ -3584,13 +3585,20 @@ div.kanban-plugin__lane-title-count {
     background-color: transparent;
 }
 
+.workspace-tabs .workspace-leaf {
+    border: 0px solid transparent !important;
+}
+.workspace-tabs .workspace-leaf.mod-active {
+    border-color: transparent;
+}
+
+/*
 .workspace-leaf.mod-active .search-result.has-focus .tree-item-self,
 .workspace-leaf.mod-active .search-result-file-match.has-focus {
     border-radius: var(--radius-m);
     border: 1px solid transparent !important;
     background-color: transparent;
 }
-
 
 .workspace-leaf.mod-active .tree-item.has-focus>.tag-pane-tag {
     border-radius: var(--radius-m);
@@ -3609,4 +3617,4 @@ body:not(.is-grabbing) .nav-file-title.has-active-menu,
     border-color: transparent !important;
     background-color: transparent;
     color: var(--text-normal);
-}
+}*/
