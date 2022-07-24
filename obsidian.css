@@ -15,7 +15,7 @@ settings:
         title: Accent Color
         type: variable-color
         format: hsl-split
-        default: '#6767AB'
+        default: '#4ae8ab'
     - 
         id: text
         title: UI font
@@ -34,7 +34,7 @@ settings:
     /* Accent lightness Light Mode */
     --accent-d: calc(var(--accent-l) + 2%);
     /* Accent lightness Dark Mode */
-    --cursor: default;
+    --cursor: pointer;
     --text: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     --text-editor: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     --font-monospace: Menlo, SFMono-Regular, Consolas, "Roboto Mono", monospace;
@@ -121,8 +121,8 @@ settings:
     --background-modifier-error-rgb: 61, 0, 0;
     --background-modifier-error-hover: #470000;
     --background-modifier-cover: rgba(0, 0, 0, 0.8);
-    --text-accent: var(--accent);
-    --text-accent-hover: hsla(var(--accent-h), var(--accent-s), var(--accent-d), 0.85);
+    --text-accent: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-d) + 12%));
+    --text-accent-hover: hsla(var(--accent-h), var(--accent-s),calc(var(--accent-d) + 12%), 0.85);
     --text-normal: #dcddde;
     --text-normal-rgb: 220, 221, 222;
     --text-muted: #999;
@@ -160,8 +160,8 @@ settings:
     --background-modifier-error-rgb: 230, 135, 135;
     --background-modifier-error-hover: #bb0000;
     --background-modifier-cover: rgba(0, 0, 0, 0.8);
-    --text-accent: var(--accent);
-    --text-accent-hover: hsla(var(--accent-h), var(--accent-s), var(--accent-d));
+    --text-accent: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 12%));
+    --text-accent-hover: hsla(var(--accent-h), var(--accent-s),calc(var(--accent-l) - 12%), 0.85);
     --text-normal: #2e3338;
     --text-normal-rgb: 46, 51, 56;
     --text-muted: #888888;
@@ -218,6 +218,10 @@ svg.folder {
     -webkit-mask-image: url('data:image/svg+xml;utf8,<svg data-name="图层 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.79 4.8h-8.32l-2.29-2.74a1 1 0 00-.76-.36H3.21a2 2 0 00-2 2v16.57a2 2 0 002 2h17.58a2 2 0 002-2V6.83a2 2 0 00-2-2.03zM3.18 3.73H9l2.28 2.74a1 1 0 00.72.33h8.82V10H3.18V3.73zm0 16.54V12h17.63v8.33z" fill="red"/></svg>');
 }
 
+/*.is-active svg.folder{
+    background-color: currentColor;
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg id="prefix__a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><style>.prefix__b{fill:red}</style></defs><path class="prefix__b" d="M22.82 6.83v3.14H1.18V3.73c0-1.12.91-2.03 2.03-2.03h6.21c.29 0 .57.13.76.36l2.29 2.74h8.32c1.12 0 2.03.91 2.03 2.03zM1.18 11.97h21.64v8.3c0 1.12-.91 2.03-2.03 2.03H3.21c-1.12 0-2.03-.91-2.03-2.03v-8.3z"/></svg>');
+}*/
 
 svg.document {
     background-color: currentColor;
@@ -228,6 +232,8 @@ svg.search {
     background-color: currentColor;
     -webkit-mask-image: url('data:image/svg+xml;utf8,<svg id="prefix__图层_1" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><style>.prefix__cls-1{fill:red}</style></defs><path class="prefix__cls-1" d="M10.5 5A5 5 0 007 6.46a1 1 0 101.38 1.42 3.08 3.08 0 014.24 0 1 1 0 00.71.29 1 1 0 00.67-.29 1 1 0 000-1.42A5 5 0 0010.5 5z"/><path class="prefix__cls-1" d="M21.56 20.15l-3.68-3.68a9.52 9.52 0 10-1.41 1.41l3.68 3.68a1 1 0 001.41 0 1 1 0 000-1.41zM3 10.5a7.5 7.5 0 117.5 7.5A7.5 7.5 0 013 10.5z"/></svg>');
 }
+
+
 
 svg.star {
     background-color: currentColor;
@@ -1289,7 +1295,7 @@ ul>li.is-collapsed::marker {
 
 .cm-s-obsidian span.cm-hashtag {
     background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.15) !important;
-    color: var(--accent) !important;
+    color: var(--text-accent) !important;
     font-size: var(--font-smaller);
     font-family: var(--font-ui);
     text-align: center;
@@ -1324,7 +1330,7 @@ span.cm-hashtag.cm-hashtag-end {
 .tag {
     background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.15) !important;
     border: none;
-    color: var(--accent) !important;
+    color: var(--text-accent) !important;
     font-size: 11px;
     padding: 1px 8px;
     text-align: center;
@@ -1871,13 +1877,13 @@ img {
 }
 
 .side-dock-ribbon-action:hover {
-    color: var(--accent);
+    color: var(--text-accent);
     background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.15) !important;
 }
 
 .workspace-ribbon-collapse-btn[aria-label-position="right"]:hover {
     background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.15) !important;
-    color: var(--accent);
+    color: var(--text-accent);
 }
 
 .workspace-ribbon-collapse-btn[aria-label-position="left"]:hover:after {
@@ -2096,7 +2102,7 @@ img {
 .workspace-leaf-content[data-type=search] .nav-action-button.is-active {
     /*box-shadow: inset -2px 2px 5px 0 rgba(0, 0, 0, 0.15);*/
     background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.15) !important;
-    color: var(--accent)!important;
+    color: var(--text-accent) !important;
 }
 
 .nav-action-button {
@@ -2151,6 +2157,8 @@ img {
     text-overflow: ellipsis;
 }
 
+
+
 body:not(.is-mobile) .nav-folder.mod-root>.nav-folder-title .nav-folder-title-content {
     text-transform: uppercase;
     font-size: var(--font-adaptive-smaller)
@@ -2172,7 +2180,7 @@ body:not(.is-grabbing) .nav-file-title.is-active:hover {
     background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.15) !important;
     /*border-right: 3px solid var(--accent);*/
     /*box-shadow: inset 0 0 0 2px var(--background-secondary);*/
-    color: var(--accent) !important;
+    color: var(--text-accent) !important;
 }
 
 
@@ -2491,7 +2499,8 @@ div.popover.hover-popover {
     align-items: center;
 }
 
-.setting-add-hotkey-button, .setting-restore-hotkey-button {
+.setting-add-hotkey-button,
+.setting-restore-hotkey-button {
     padding: 4px 6px;
     border-radius: 4px;
     color: var(--text-muted);
@@ -2501,7 +2510,7 @@ div.popover.hover-popover {
     align-items: center;
 }
 
-.setting-add-hotkey-button svg{
+.setting-add-hotkey-button svg {
     height: 16px;
     width: 16px;
     bottom: 0px;
@@ -2527,7 +2536,11 @@ div.popover.hover-popover {
     padding: 20px;
 }
 
-
+.modal-bg,
+.workspace-drawer-backdrop {
+    background: var(--background-primary);
+    opacity: 0.4 !important;
+}
 
 .modal-close-button {
     display: flex;
@@ -2620,7 +2633,7 @@ div.popover.hover-popover {
 
 .vertical-tab-nav-item.is-active,
 .vertical-tab-nav-item.is-active:hover {
-    color: var(--accent);
+    color: var(--text-accent);
     background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.15)
 }
 
@@ -2833,7 +2846,7 @@ div.notice-container div.notice {
 
 .menu-item.selected,
 .menu-item:hover {
-    color: var(--accent);
+    color: var(--text-accent);
     background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.15) !important;
 }
 
@@ -2847,7 +2860,7 @@ div.notice-container div.notice {
 }
 
 .suggestion-item.is-selected:not(.mod-group) {
-    color: var(--accent);
+    color: var(--text-accent);
     background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.15) !important;
 }
 
@@ -2885,7 +2898,7 @@ button:hover {
     background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.15) !important;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1) !important;
     transition: background-color .2s ease-out, border-color .2s ease-out;
-    color: var(--accent)
+    color: var(--text-accent)
 }
 
 
@@ -3049,8 +3062,9 @@ input.document-search-input:focus {
     border-width: 1px;
     box-shadow: inset 0 0 0 2px var(--accent);
 }
-input.document-replace-input{
-    color:var(--text-normal)!important;
+
+input.document-replace-input {
+    color: var(--text-normal) !important;
 }
 
 input.document-search-input.mod-no-match:active,
@@ -3074,6 +3088,7 @@ input[type=number],
 input[type=password],
 input[type=search],
 input[type=text] {
+    font-size: small;
     padding: 5px 10px;
     -webkit-appearance: none;
     transition: box-shadow .1s linear;
@@ -3189,7 +3204,7 @@ button+.checkbox-container {
 .checkbox-container {
     cursor: pointer;
     background-color: var(--interactive-normal);
-    border-radius: 5px;
+    border-radius: 16px;
     display: inline-block;
     height: 23px;
     position: relative;
@@ -3206,12 +3221,12 @@ button+.checkbox-container {
     content: "";
     display: inline-block;
     position: absolute;
-    background-color: var(--background-primary);
-    width: 15px;
+    background-color: #fff !important;
+    width: 16px;
     height: 16px;
     margin: 3px;
     left: 0;
-    border-radius: 3px;
+    border-radius: 16px;
     transition: transform 0.15s ease-in-out, width 0.1s ease-in-out,
         left 0.1s ease-in-out, -webkit-transform 0.15s ease-in-out;
     transform: translate3d(1px, 0, 0);
@@ -3224,7 +3239,7 @@ button+.checkbox-container {
 }
 
 .checkbox-container.is-enabled {
-    background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.35) !important;
+    background-color: var(--accent) !important;
 }
 
 .theme-dark .checkbox-container:after {
@@ -3287,13 +3302,13 @@ select:focus {
 
 /*slider*/
 input[type=range] {
-    background-color: var(--interactive-normal);
-    height: 3px;
+    background-color: rgba(var(--text-normal-rgb), 0.15);
+    height: 4px;
     padding: 0 0;
     -webkit-appearance: none;
     cursor: default;
     margin: 0;
-    border-radius: 0
+    border-radius: 16px;
 }
 
 input[type=range]:focus {
@@ -3309,9 +3324,9 @@ input[type=range]::-webkit-slider-thumb {
     background: #fff;
     border: 1px solid rgba(var(--text-normal-rgb), 0.15);
     height: 16px;
-    width: 15px;
-    border-radius: 3px;
-    margin-top: -5px;
+    width: 16px;
+    border-radius: 16px;
+    margin-top: -4px;
     transition: all .1s linear;
     cursor: default;
     box-shadow: 0 0px 3px rgba(0, 0, 0, .15);
@@ -3549,4 +3564,39 @@ body .kanban-plugin__lane-title p {
 
 div.kanban-plugin__lane-title-count {
     background-color: var(--background-primary) !important;
+}
+
+/*fix*/
+.workspace-leaf.mod-active .nav-folder.has-focus>.nav-folder-title,
+.workspace-leaf.mod-active .nav-file.has-focus {
+    border-radius: var(--radius-m);
+    border: 1px solid transparent !important;
+    background-color: transparent;
+}
+
+.workspace-leaf.mod-active .search-result.has-focus .tree-item-self,
+.workspace-leaf.mod-active .search-result-file-match.has-focus {
+    border-radius: var(--radius-m);
+    border: 1px solid transparent !important;
+    background-color: transparent;
+}
+
+
+.workspace-leaf.mod-active .tree-item.has-focus>.tag-pane-tag {
+    border-radius: var(--radius-m);
+    box-shadow: inset 0 0 0 1px transparent !important;
+    background-color: transparent;
+}
+
+.workspace-leaf.mod-active .tree-item.has-focus>.tag-pane-tag {
+    border-radius: var(--radius-m);
+    box-shadow: inset 0 0 0 1px transparent !important;
+}
+
+body:not(.is-grabbing) .nav-file-title.has-active-menu,
+.nav-folder-title.is-being-dragged-over {
+    border-radius: var(--radius-m);
+    border-color: transparent !important;
+    background-color: transparent;
+    color: var(--text-normal);
 }
