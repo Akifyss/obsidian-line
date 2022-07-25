@@ -1782,14 +1782,14 @@ img {
     justify-content: center;
 }
 
-.view-action svg{
+.view-action svg {
     width: 18px;
     height: 18px;
 }
 
 
 
-.view-action.mod-close-leaf{
+.view-action.mod-close-leaf {
     margin-left: 4px !important;
 }
 
@@ -1810,7 +1810,7 @@ img {
     padding: 4px;
 }
 
-.is-mobile .view-header-icon{
+.is-mobile .view-header-icon {
     padding: 0px;
     margin: 12px;
 }
@@ -1886,6 +1886,7 @@ img {
     border: 1px solid rgba(var(--text-normal-rgb), 0.15);
     align-items: center;
     justify-content: center;
+    transition: 500ms;
 }
 
 .theme-dark .graph-controls-button:not(.mod-close):not(.mod-reset) {
@@ -2419,19 +2420,78 @@ body.is-dragging {
     opacity: 1;
 }
 
+.is-translucent .graph-controls-button:not(.mod-close):not(.mod-reset) {
+    background-color: var(--background-modifier-border)!important;
+}
 
+.is-translucent .workspace-ribbon.mod-right .workspace-ribbon-collapse-btn {
+    background-color: var(--background-modifier-border)!important;
+}
 
-/* status-bar*/
+.is-translucent .nav-action-button,
+.is-translucent .workspace-leaf-content[data-type=backlink] .nav-action-button,
+.is-translucent .workspace-leaf-content[data-type=search] .nav-action-button {
+    background-color: var(--background-modifier-border)!important;
+}
+
+.is-translucent .drag-ghost {background-color: var(--background-modifier-border)!important;background-color: var(--background-modifier-border);
+}
+
 .is-translucent .status-bar {
+    background-color: var(--background-modifier-border)!important;
+    padding: 2px 8px 6px 3px;
     margin: 0;
     opacity: 1;
     border-top: 1px solid var(--background-secondary-alt);
 }
 
-.is-translucent .status-bar {
-    opacity: var(--opacity-translucency);
-    padding: 2px 8px 6px 3px
+.is-translucent div.popover.hover-popover {
+    background-color: var(--background-modifier-border)!important;
 }
+
+
+.is-translucent .tooltip {
+    background-color: var(--background-modifier-border)!important;
+}
+
+
+.is-translucent .graph-controls:not(.is-close),
+.is-translucent .menu,
+.is-translucent .suggestion-container.mod-search-suggestion {
+    background-color: var(--background-modifier-border)!important;
+}
+
+.is-translucent .suggestion-container {
+    background-color: var(--background-modifier-border)!important;
+}
+
+.is-translucent div.notice-container div.notice {
+    background-color: var(--background-modifier-border)!important;
+}
+
+.is-translucent input[type=email],
+.is-translucent input[type=number],
+.is-translucent input[type=password],
+.is-translucent input[type=search],
+.is-translucent input[type=text] {
+    background-color: var(--background-modifier-border)!important;
+}
+
+.is-translucent input[type='text']:active,
+.is-translucent input[type='search']:active,
+.is-translucent input[type='email']:active,
+.is-translucent input[type='password']:active,
+.is-translucent input[type='number']:active,
+.is-translucent input[type='text']:focus,
+.is-translucent input[type='search']:focus,
+.is-translucent input[type='email']:focus,
+.is-translucent input[type='password']:focus,
+.is-translucent input[type='number']:focus {
+    background-color: var(--background-modifier-border)!important;
+}
+
+/* status-bar*/
+
 
 .status-bar {
     display: inline-block;
@@ -2966,7 +3026,7 @@ div.notice-container div.notice {
     color: var(--text-accent);
 }
 
-.menu-separator{
+.menu-separator {
     border-bottom: 1px solid rgba(var(--text-normal-rgb), 0.15)
 }
 
@@ -3241,7 +3301,6 @@ input.document-search-input.mod-no-match,
 input.document-search-input.mod-no-match:hover {
     margin-top: 1px !important;
     background-color: var(--background-modifier-border) !important;
-    backdrop-filter: blur(0px);
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
     color: var(--text-normal) !important;
 }
