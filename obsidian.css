@@ -92,6 +92,7 @@ settings:
     --mobile-right-sidebar-width: 240pt;
     --tag-radius: 14px;
     --tag-border-width: 1px;
+    --icon-opacity:.75
 }
 
 
@@ -202,7 +203,8 @@ body {
 
 .menu-item-icon svg {
     width: 20px;
-    height: 20px
+    height: 20px;
+    opacity: var(--icon-opacity);
 }
 
 
@@ -1833,6 +1835,7 @@ img {
 .view-action svg {
     width: 20px;
     height: 20px;
+    opacity: var(--icon-opacity);
 }
 
 
@@ -1844,6 +1847,7 @@ img {
 .view-header-icon svg {
     width: 20px;
     height: 20px;
+    opacity: var(--icon-opacity);
 }
 
 .view-header-icon {
@@ -1977,7 +1981,6 @@ img {
     height: 30px;
     width: 30px;
     border-radius: var(--radius-m);
-    ;
     opacity: 1;
     background-color: var(--interactive-normal);
     backdrop-filter: blur(50px);
@@ -2090,6 +2093,7 @@ img {
 
 .workspace-ribbon-collapse-btn svg,
 .side-dock-ribbon-action svg {
+    opacity: var(--icon-opacity);
     width: 20px;
     height: 20px
 }
@@ -2484,7 +2488,6 @@ body.is-dragging {
 
 .drag-ghost-self svg {
     margin-right: 4px;
-    opacity: .5;
     display: none
 }
 
@@ -2887,7 +2890,7 @@ div.popover.hover-popover {
 .modal-bg,
 .workspace-drawer-backdrop {
     background: var(--background-primary);
-    opacity: 0.4 !important;
+    opacity: 0.75 !important;
 }
 
 .modal-close-button {
@@ -3261,7 +3264,7 @@ div.notice-container div.notice {
     height: var(--input-height);
     line-height: 0;
     white-space: nowrap;
-    transition: background-color .5s ease-out, border-color .5s ease-out;
+    transition: 200ms;
 }
 
 .theme-dark .modal button:not(.mod-warning),
@@ -3270,7 +3273,7 @@ div.notice-container div.notice {
     border: 1px solid rgba(var(--text-normal-rgb), 0.15);
     background-color: var(--interactive-normal);
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1) !important;
-    ;
+    transition: 200ms;
 }
 
 .modal button:not(.mod-warning):hover,
@@ -3279,7 +3282,8 @@ button:hover {
     background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.15) !important;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1) !important;
     transition: background-color .5s ease-out, border-color .5s ease-out;
-    color: var(--text-accent)
+    color: var(--text-accent);
+    transition: 200ms;
 }
 
 
@@ -3661,6 +3665,7 @@ select {
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
     background-color: var(--interactive-normal);
     border: 1px solid rgba(var(--text-normal-rgb), 0.15);
+    backdrop-filter: blur(50px);
 }
 
 .dropdown {
